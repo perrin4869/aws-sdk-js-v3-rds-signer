@@ -1,15 +1,15 @@
-import { defaultProvider } from '@aws-sdk/credential-provider-node'
-import { HttpRequest } from '@aws-sdk/protocol-http'
-import { SignatureV4 } from '@aws-sdk/signature-v4'
-import { Hash } from '@aws-sdk/hash-node'
-import { formatUrl } from '@aws-sdk/util-format-url'
+const { defaultProvider } = require('@aws-sdk/credential-provider-node')
+const { HttpRequest } = require('@aws-sdk/protocol-http')
+const { SignatureV4 } = require('@aws-sdk/signature-v4')
+const { Hash } = require('@aws-sdk/hash-node')
+const { formatUrl } = require('@aws-sdk/util-format-url')
 
 const signing = {
   service: 'rds-db',
   protocol: 'https'
 }
 
-export class Signer {
+module.exports.Signer = class {
   constructor ({ credentials, hostname, port, region, username } = {}) {
     this.credentials = credentials || defaultProvider()
     this.hostname = hostname

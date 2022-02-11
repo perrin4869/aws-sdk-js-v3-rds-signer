@@ -1,6 +1,6 @@
-import * as tap from 'tap'
-import { URL } from 'url'
-import { Signer } from './index.js'
+const tap = require('tap')
+const { URL } = require('url')
+const { Signer } = require('./index.js')
 
 tap.test('Signer', async t => {
   const signer = new Signer({
